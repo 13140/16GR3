@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	<struts>
+		<constant name="struts.enble.DynamicMethodInvocation" value="ture" />
+		<package name="default" namespace="/" extends="struts-default">
+		</package>
+		<package name="filemanager" extends="default">
+			<action name="file" class="com.qhit.lh.gr3.ui.t7.action.FileAction">
+				<interceptor-ref name="defaultStack">
+					<param name="fileUpload.allowedExtensions">.txt,.zip,.png,.jag</param>
+					<param name="fileUpload.maximumSize">102400000</param>
+				</interceptor-ref>
+				<result name="uplaodSuccess">/jsp/allFiles.jsp</result>
+				<result name="input">index.jsp</result>
+			</action>
+		</package>
+	</struts>
